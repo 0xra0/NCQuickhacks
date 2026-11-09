@@ -1,0 +1,163 @@
+# World loot for the NCQuickhacks programs.
+#
+# The reachable chain, read out of TweakDB rather than guessed:
+#
+#   Loot.<gang>NetrunnerNetrunnerT2 / container tables
+#     -> LootTables.QuickhackTable_Chance   (included by 4 records)
+#        LootTables.QuickhackTable_Guaranteed (included by 9)
+#          -> LootTables.LegendaryQuickhacks / _Guaranteed
+#               -> entries with itemID = Items.<X>Program
+#
+# All seven programs are Quality.Legendary, so the Legendary tables are the
+# correct host. dropChance 0.2 and the shared LootPrereqs gate both match the
+# vanilla entries sitting beside them.
+#
+# NOTE: LootTables.AllPrograms looks like the obvious home and is NOT - nothing
+# in the game includes it, so appending there would drop exactly nothing.
+
+LootTables.LegendaryQuickhacks:
+  lootItems:
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_SmartLinkScrambleProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_ReflexJammerProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_OpticOverwriteProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_PhantomOverlayProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_MotorCortexInversionProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_AdrenalineOverdoseProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_CryptoSiphonProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+
+LootTables.LegendaryQuickhacks_Guaranteed:
+  lootItems:
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_SmartLinkScrambleProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_ReflexJammerProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_OpticOverwriteProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_PhantomOverlayProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_MotorCortexInversionProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_AdrenalineOverdoseProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+    - !append
+      $type: LootItem
+      itemID: Items.NCQ_CryptoSiphonProgram
+      dropChance: 0.2
+      dropCountMin: 0
+      dropCountMax: 1
+      playerPrereqID: LootPrereqs.LegendaryQuickhackPlayerPrereq
+      dropChanceModifiers: []
+      quantityModifiers: []
+      statModifiers: []
+

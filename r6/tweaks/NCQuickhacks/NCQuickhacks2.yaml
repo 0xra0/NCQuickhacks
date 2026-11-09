@@ -1,0 +1,1144 @@
+# =============================================================================
+#  NCQuickhacks vol.2 - Phantom Overlay, Motor Cortex Inversion,
+#                       Adrenaline Overdose, Crypto-Siphon
+# =============================================================================
+
+Items.NCQ_PhantomOverlayProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.CovertHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_PhantomOverlay_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\phantom_overlay.inkatlas
+    atlasPartName: NCQPhantomOverlay
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_PhantomOverlayProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.CovertHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_PhantomOverlayHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: PhantomOverlay
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_PhantomOverlayProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_PhantomOverlayProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_PhantomOverlayProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_PhantomOverlay_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_PhantomOverlayHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQPhantomOverlay
+  gameplayCategory: ''
+  hackCategory: HackCategory.CovertHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_PhantomOverlayHack
+  priority: 2
+  activationTime:
+    - QuickHack.NCQ_PhantomOverlayHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_PhantomOverlayHack_apply
+  costs:
+    - QuickHack.NCQ_PhantomOverlayHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_PhantomOverlayHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.5
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_PhantomOverlayHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_PhantomOverlayHack_ram
+
+QuickHack.NCQ_PhantomOverlayHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 10
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_PhantomOverlayHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_PhantomOverlay
+
+Interactions.NCQ_PhantomOverlayHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_PhantomOverlayIcon
+  name: NCQPhantomOverlayHack
+  prereqID: ''
+  caption: NCQ_PhantomOverlay_name
+  description: NCQ_PhantomOverlay_short
+
+ChoiceCaptionParts.NCQ_PhantomOverlayIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQPhantomOverlay
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_PhantomOverlayScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_PhantomOverlay:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQPhantomOverlay
+  atlasResourcePath: base\ncquickhacks\ui\phantom_overlay.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_PhantomOverlayScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQPhantomOverlayScanner
+  atlasResourcePath: base\ncquickhacks\ui\phantom_overlay_scanner.inkatlas
+
+BaseStatusEffect.NCQ_PhantomOverlay:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_PhantomOverlay_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_PhantomOverlay_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - CovertQuickhacked
+    - Stealth
+    - NCQ_PhantomOverlay
+  immunityStats: []
+  packages: []
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_PhantomOverlay_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 12
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_PhantomOverlay_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_PhantomOverlay_sedesc
+  displayName: LocKey#NCQ_PhantomOverlay_name
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+
+Items.NCQ_MotorCortexInversionProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.ControlHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_MotorCortex_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\motor_cortex.inkatlas
+    atlasPartName: NCQMotorCortexInversion
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_MotorCortexInversionProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.ControlHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_MotorCortexInversionHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: MotorCortexInversion
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_MotorCortexInversionProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_MotorCortexInversionProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_MotorCortexInversionProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_MotorCortex_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_MotorCortexInversionHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQMotorCortexInversion
+  gameplayCategory: ''
+  hackCategory: HackCategory.ControlHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_MotorCortexInversionHack
+  priority: 3
+  activationTime:
+    - QuickHack.NCQ_MotorCortexInversionHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_MotorCortexInversionHack_apply
+  costs:
+    - QuickHack.NCQ_MotorCortexInversionHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_MotorCortexInversionHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_MotorCortexInversionHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_MotorCortexInversionHack_ram
+
+QuickHack.NCQ_MotorCortexInversionHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 9
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_MotorCortexInversionHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_MotorCortexInversion
+
+Interactions.NCQ_MotorCortexInversionHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_MotorCortexInversionIcon
+  name: NCQMotorCortexInversionHack
+  prereqID: ''
+  caption: NCQ_MotorCortex_name
+  description: NCQ_MotorCortex_short
+
+ChoiceCaptionParts.NCQ_MotorCortexInversionIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQMotorCortexInversion
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_MotorCortexInversionScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_MotorCortexInversion:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQMotorCortexInversion
+  atlasResourcePath: base\ncquickhacks\ui\motor_cortex.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_MotorCortexInversionScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQMotorCortexInversionScanner
+  atlasResourcePath: base\ncquickhacks\ui\motor_cortex_scanner.inkatlas
+
+BaseStatusEffect.NCQ_MotorCortexInversion:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_MotorCortexInversion_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_MotorCortexInversion_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - NCQ_MotorCortexInversion
+  immunityStats: []
+  packages:
+    - BaseStatusEffect.NCQ_MotorCortexInversion_pkg
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_MotorCortexInversion_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 10
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_MotorCortexInversion_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_MotorCortex_sedesc
+  displayName: LocKey#NCQ_MotorCortex_name
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+
+BaseStatusEffect.NCQ_MotorCortexInversion_pkg:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats:
+    - BaseStatusEffect.NCQ_MotorCortexInversion_accuracy
+    - BaseStatusEffect.NCQ_MotorCortexInversion_attackspeed
+    - BaseStatusEffect.NCQ_MotorCortexInversion_armor
+
+BaseStatusEffect.NCQ_MotorCortexInversion_accuracy:
+  $type: gamedataConstantStatModifier_Record
+  value: -0.85
+  modifierType: Additive
+  statType: BaseStats.Accuracy
+
+BaseStatusEffect.NCQ_MotorCortexInversion_attackspeed:
+  $type: gamedataConstantStatModifier_Record
+  value: -0.6
+  modifierType: Additive
+  statType: BaseStats.AttackSpeed
+
+BaseStatusEffect.NCQ_MotorCortexInversion_armor:
+  $type: gamedataConstantStatModifier_Record
+  value: -200
+  modifierType: Additive
+  statType: BaseStats.Armor
+
+
+Items.NCQ_AdrenalineOverdoseProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.DamageHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_AdrenalineOverdose_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\adrenaline_overdose.inkatlas
+    atlasPartName: NCQAdrenalineOverdose
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_AdrenalineOverdoseProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.DamageHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_AdrenalineOverdoseHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: AdrenalineOverdose
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_AdrenalineOverdoseProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_AdrenalineOverdoseProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_AdrenalineOverdoseProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_AdrenalineOverdose_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_AdrenalineOverdoseHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQAdrenalineOverdose
+  gameplayCategory: ''
+  hackCategory: HackCategory.DamageHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_AdrenalineOverdoseHack
+  priority: 4
+  activationTime:
+    - QuickHack.NCQ_AdrenalineOverdoseHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_AdrenalineOverdoseHack_apply
+  costs:
+    - QuickHack.NCQ_AdrenalineOverdoseHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_AdrenalineOverdoseHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 3.0
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_AdrenalineOverdoseHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_AdrenalineOverdoseHack_ram
+
+QuickHack.NCQ_AdrenalineOverdoseHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 14
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_AdrenalineOverdoseHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_AdrenalineOverdose
+
+Interactions.NCQ_AdrenalineOverdoseHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_AdrenalineOverdoseIcon
+  name: NCQAdrenalineOverdoseHack
+  prereqID: ''
+  caption: NCQ_AdrenalineOverdose_name
+  description: NCQ_AdrenalineOverdose_short
+
+ChoiceCaptionParts.NCQ_AdrenalineOverdoseIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQAdrenalineOverdose
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_AdrenalineOverdoseScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_AdrenalineOverdose:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQAdrenalineOverdose
+  atlasResourcePath: base\ncquickhacks\ui\adrenaline_overdose.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_AdrenalineOverdoseScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQAdrenalineOverdoseScanner
+  atlasResourcePath: base\ncquickhacks\ui\adrenaline_overdose_scanner.inkatlas
+
+BaseStatusEffect.NCQ_AdrenalineOverdose:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_AdrenalineOverdose_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_AdrenalineOverdose_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - NCQ_AdrenalineOverdose
+  immunityStats: []
+  packages:
+    - BaseStatusEffect.NCQ_AdrenalineOverdose_pkg
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_AdrenalineOverdose_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 15
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_AdrenalineOverdose_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_AdrenalineOverdose_sedesc
+  displayName: LocKey#NCQ_AdrenalineOverdose_name
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+
+BaseStatusEffect.NCQ_AdrenalineOverdose_pkg:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats:
+    - BaseStatusEffect.NCQ_AdrenalineOverdose_armor
+
+BaseStatusEffect.NCQ_AdrenalineOverdose_armor:
+  $type: gamedataConstantStatModifier_Record
+  value: -400
+  modifierType: Additive
+  statType: BaseStats.Armor
+
+
+Items.NCQ_CryptoSiphonProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.CovertHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_CryptoSiphon_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\crypto_siphon.inkatlas
+    atlasPartName: NCQCryptoSiphon
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_CryptoSiphonProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.CovertHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_CryptoSiphonHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: CryptoSiphon
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_CryptoSiphonProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_CryptoSiphonProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_CryptoSiphonProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_CryptoSiphon_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_CryptoSiphonHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQCryptoSiphon
+  gameplayCategory: ''
+  hackCategory: HackCategory.CovertHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_CryptoSiphonHack
+  priority: 1
+  activationTime:
+    - QuickHack.NCQ_CryptoSiphonHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_CryptoSiphonHack_apply
+  costs:
+    - QuickHack.NCQ_CryptoSiphonHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_CryptoSiphonHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_CryptoSiphonHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_CryptoSiphonHack_ram
+
+QuickHack.NCQ_CryptoSiphonHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 6
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_CryptoSiphonHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_CryptoSiphon
+
+Interactions.NCQ_CryptoSiphonHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_CryptoSiphonIcon
+  name: NCQCryptoSiphonHack
+  prereqID: ''
+  caption: NCQ_CryptoSiphon_name
+  description: NCQ_CryptoSiphon_short
+
+ChoiceCaptionParts.NCQ_CryptoSiphonIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQCryptoSiphon
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_CryptoSiphonScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_CryptoSiphon:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQCryptoSiphon
+  atlasResourcePath: base\ncquickhacks\ui\crypto_siphon.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_CryptoSiphonScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQCryptoSiphonScanner
+  atlasResourcePath: base\ncquickhacks\ui\crypto_siphon_scanner.inkatlas
+
+BaseStatusEffect.NCQ_CryptoSiphon:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_CryptoSiphon_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_CryptoSiphon_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - CovertQuickhacked
+    - Stealth
+    - NCQ_CryptoSiphon
+  immunityStats: []
+  packages: []
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_CryptoSiphon_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 30
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_CryptoSiphon_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_CryptoSiphon_sedesc
+  displayName: LocKey#NCQ_CryptoSiphon_name
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+
+BaseStatusEffect.NCQ_AdrenalineCrash:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_AdrenalineCrash_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_AdrenalineCrash_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - NCQ_AdrenalineCrash
+  immunityStats: []
+  packages:
+    - BaseStatusEffect.NCQ_AdrenalineCrash_pkg
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_AdrenalineCrash_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 8
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_AdrenalineCrash_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_AdrenalineCrash_sedesc
+  displayName: LocKey#NCQ_AdrenalineCrash_se
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+BaseStatusEffect.NCQ_AdrenalineCrash_pkg:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats:
+    - BaseStatusEffect.NCQ_AdrenalineCrash_armor
+    - BaseStatusEffect.NCQ_AdrenalineCrash_accuracy
+
+BaseStatusEffect.NCQ_AdrenalineCrash_armor:
+  $type: gamedataConstantStatModifier_Record
+  value: -10000
+  modifierType: Additive
+  statType: BaseStats.Armor
+
+BaseStatusEffect.NCQ_AdrenalineCrash_accuracy:
+  $type: gamedataConstantStatModifier_Record
+  value: -0.95
+  modifierType: Additive
+  statType: BaseStats.Accuracy
+
+

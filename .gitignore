@@ -1,0 +1,18 @@
+# Third-party mod archives (downloaded for reference/testing)
+zips/
+
+# WolvenKit intermediate build artifacts
+icons/.build/
+
+# Distribution packages
+*.zip
+dist/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*~
+.vscode/
+.idea/

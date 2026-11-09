@@ -1,0 +1,27 @@
+# ArchiveXL registration for NCQuickhacks' on-screen strings.
+#
+# Every quickhack name and tooltip is a bare secondary key in the tweak YAML
+# (e.g. displayName: NCQ_CryptoSiphon_name); these resources are what resolve
+# them. A locale that is not listed here would resolve to nothing, so all of
+# them are mapped - Ukrainian to its own translation, the rest to English.
+localization:
+  onscreens:
+    ua-ua: base\ncquickhacks\local\ua-ua.json
+    en-us: base\ncquickhacks\local\en-us.json
+    ar-ar: base\ncquickhacks\local\en-us.json
+    cz-cz: base\ncquickhacks\local\en-us.json
+    de-de: base\ncquickhacks\local\en-us.json
+    es-es: base\ncquickhacks\local\en-us.json
+    es-mx: base\ncquickhacks\local\en-us.json
+    fr-fr: base\ncquickhacks\local\en-us.json
+    hu-hu: base\ncquickhacks\local\en-us.json
+    it-it: base\ncquickhacks\local\en-us.json
+    jp-jp: base\ncquickhacks\local\en-us.json
+    kr-kr: base\ncquickhacks\local\en-us.json
+    pl-pl: base\ncquickhacks\local\en-us.json
+    pt-br: base\ncquickhacks\local\en-us.json
+    ru-ru: base\ncquickhacks\local\en-us.json
+    th-th: base\ncquickhacks\local\en-us.json
+    tr-tr: base\ncquickhacks\local\en-us.json
+    zh-cn: base\ncquickhacks\local\en-us.json
+    zh-tw: base\ncquickhacks\local\en-us.json

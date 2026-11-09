@@ -1,0 +1,687 @@
+# NCQuickhacks - NPC compatibility
+#
+# A quickhack needs TWO registrations to reach the scanner wheel.  The program
+# item's `objectActions` puts it on the *deck* side; this file puts it on the
+# *target* side.  ScriptedPuppet.SendQuickhackCommands reads the NPC's own
+# record - `this.GetRecord().ObjectActions(actionRecords)` - and
+# TranslateChoicesIntoQuickSlotCommands then matches each installed program
+# against that list by ActionName().  No match, no entry: the hack is silently
+# dropped from the wheel even though the shard is installed in the cyberdeck.
+#
+# `!append-once` patches the vanilla record instead of replacing it, so this
+# stays compatible with anything else that appends to the same NPC.
+#
+# To take a hack away from a group, delete or comment out its line.  To grant
+# one, copy a `- !append-once QuickHack.NCQ_<Name>Hack` line across.  TweakXL
+# only reads this at startup - restart the game fully after editing.
+
+# <----------------------- NPC BASE RECORDS ----------------------->
+
+
+Character.aldecaldos_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.kangtao_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.animals_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.arasaka_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.generic_street_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.kurtz_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.maelstrom_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.maxtac_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.militech_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ncpd_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.netwatch_base_ma:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Quest_Combat_NPC_Base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.scavenger_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.scrappers_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.security_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.sixth_street_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.the_mox_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.trauma_team_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.tyger_claws_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.valentinos_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.voodooboys_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.wraiths_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ep1_scavenger_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ep1_voodooboys_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_MotorCortexInversionHack
+    - !append-once QuickHack.NCQ_AdrenalineOverdoseHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+
+# <--------------------- DRONES, MECHS, ANDROIDS ------------------->
+# Motor Cortex Inversion and Adrenaline Overdose are withheld here: neither has
+# a target in a machine, and both are the ones that drive time dilation and
+# stat pools.
+
+Character.Android_NPC_Base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Drone_NPC_Base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Mech_NPC_Base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Mechanical_NPC_Base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ncpd_base_android:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ncpd_base_minotaur:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Cerberus_NPC_Base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+
+# <----------------- CYBERPSYCHOS, MINIBOSSES, BOSSES -------------->
+# Same withholding as machines, for a different reason: these are scripted
+# encounters, and slowing a boss's clock or spiking its stats is the fastest
+# way to desync one.  Keep a save from before any scripted fight regardless.
+
+Character.we_ep1_05_mini_boss:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.we_ep1_01_mini_boss_1st_phase:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.we_ep1_01_mini_boss_2nd_phase:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.we_ep1_17_miniboss:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.cbj_ep1_cyberjunkie_base:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.cbj_ep1_011_cyberjunkie:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_bls_ina_se1_07_cyberpsycho_1:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_bls_ina_se1_08_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_cct_dtn_03_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_cct_dtn_07_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_hey_spr_04_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_hey_spr_06_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_pac_cvi_15_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_std_arr_06_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_std_rcr_11_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_kab_02_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_kab_08_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_lch_06_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.mq030_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.rcr_05_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.sts_wat_nid_01_cyberpsycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ina_09_jason_2:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_bls_ina_se1_22_psycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_pac_cvi_08_psycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_nid_03_shard_psycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_nid_22_monk:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.sts_wat_kab_03_solo:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_nid_15_psycho:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_nid_15_psycho_02:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.ma_wat_nid_15_psycho_03:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.q304_kurt_miniboss:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.sts_ep1_08_kgb_boss:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.sts_ep1_12_droid_miniboss:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.mq303_scav_2:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.mq304_bennett:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.mq306_angie:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.main_boss_adam_smasher:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.main_boss_chimera:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.main_boss_oda:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.main_boss_royce:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.main_boss_sasquatch:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Woodman:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Placide:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.kurtz:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack
+
+Character.Yorinobu:
+  objectActions:
+    - !append-once QuickHack.NCQ_SmartLinkScrambleHack
+    - !append-once QuickHack.NCQ_ReflexJammerHack
+    - !append-once QuickHack.NCQ_OpticOverwriteHack
+    - !append-once QuickHack.NCQ_PhantomOverlayHack
+    - !append-once QuickHack.NCQ_CryptoSiphonHack

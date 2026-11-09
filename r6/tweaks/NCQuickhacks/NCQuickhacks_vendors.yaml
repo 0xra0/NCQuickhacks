@@ -1,0 +1,255 @@
+# =============================================================================
+#  NCQuickhacks - vendor stock
+#
+#  All seven programs, permanently stocked at every netrunner vendor in Night
+#  City plus the Kabuki black marketeer. Vendor IDs verified against the
+#  install; none are guesses.
+# =============================================================================
+
+Vendors.cz_con_netrunner_01:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.cz_stadium_netrunner_01:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.hey_rey_netrunner_01:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.wat_kab_netrunner_01:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.wat_lch_netrunner_01:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.wbr_jpn_netrunner_01:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.wbr_jpn_netrunner_02:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present
+
+Vendors.BlackMarketer_HUB:
+  itemStock:
+    - !append
+      item: Items.NCQ_SmartLinkScrambleProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_ReflexJammerProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_OpticOverwriteProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_PhantomOverlayProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_MotorCortexInversionProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_AdrenalineOverdoseProgram
+      quantity:
+        - !append Vendors.Always_Present
+    - !append
+      item: Items.NCQ_CryptoSiphonProgram
+      quantity:
+        - !append Vendors.Always_Present

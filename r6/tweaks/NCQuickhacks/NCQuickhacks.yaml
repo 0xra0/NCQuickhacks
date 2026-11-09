@@ -1,0 +1,880 @@
+# =============================================================================
+#  NCQuickhacks - Anti-Cyberware & Tech Sabotage
+#  1. Smart-Link Scramble   - breaks smart-weapon lock, redirects fire to allies
+#  2. Reflex Booster Jammer - punishes Sandevistan/Kerenzikov/dodge dilation
+#  3. Optic Overwrite       - IFF spoof, target's own squad opens fire on them
+#
+#  Console grants:
+#    Game.AddToInventory("Items.NCQ_SmartLinkScrambleProgram")
+#    Game.AddToInventory("Items.NCQ_ReflexJammerProgram")
+#    Game.AddToInventory("Items.NCQ_OpticOverwriteProgram")
+# =============================================================================
+
+
+# =============================================================================
+#  1. SMART-LINK SCRAMBLE
+# =============================================================================
+
+Items.NCQ_SmartLinkScrambleProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.CovertHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_SmartLinkScramble_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\smartlink_scramble.inkatlas
+    atlasPartName: NCQSmartLinkScramble
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_SmartLinkScrambleProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.CovertHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_SmartLinkScrambleHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: SmartLinkScramble
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_SmartLinkScrambleProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_SmartLinkScrambleProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_SmartLinkScrambleProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_SmartLinkScramble_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_SmartLinkScrambleHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQSmartLinkScramble
+  gameplayCategory: ''
+  hackCategory: HackCategory.CovertHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_SmartLinkScrambleHack
+  priority: 2
+  activationTime:
+    - QuickHack.NCQ_SmartLinkScrambleHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_SmartLinkScrambleHack_apply
+  costs:
+    - QuickHack.NCQ_SmartLinkScrambleHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_SmartLinkScrambleHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 2
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_SmartLinkScrambleHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_SmartLinkScrambleHack_ram
+
+QuickHack.NCQ_SmartLinkScrambleHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 8
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_SmartLinkScrambleHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_SmartLinkScramble
+
+Interactions.NCQ_SmartLinkScrambleHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_SmartLinkScrambleIcon
+  name: NCQSmartLinkScrambleHack
+  prereqID: ''
+  caption: NCQ_SmartLinkScramble_name
+  description: NCQ_SmartLinkScramble_short
+
+ChoiceCaptionParts.NCQ_SmartLinkScrambleIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQSmartLinkScramble
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_SmartLinkScrambleScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_SmartLinkScramble:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQSmartLinkScramble
+  atlasResourcePath: base\ncquickhacks\ui\smartlink_scramble.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_SmartLinkScrambleScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQSmartLinkScrambleScanner
+  atlasResourcePath: base\ncquickhacks\ui\smartlink_scramble_scanner.inkatlas
+
+BaseStatusEffect.NCQ_SmartLinkScramble:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_SmartLinkScramble_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_SmartLinkScramble_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - CovertQuickhacked
+    - Stealth
+    - NCQ_SmartLinkScramble
+  immunityStats: []
+  packages:
+    - BaseStatusEffect.NCQ_SmartLinkScramble_pkg
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_SmartLinkScramble_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 10
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_SmartLinkScramble_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_SmartLinkScramble_sedesc
+  displayName: LocKey#NCQ_SmartLinkScramble_name
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+# Hard accuracy floor so scrambled fire genuinely sprays.
+BaseStatusEffect.NCQ_SmartLinkScramble_pkg:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats:
+    - BaseStatusEffect.NCQ_SmartLinkScramble_acc
+
+BaseStatusEffect.NCQ_SmartLinkScramble_acc:
+  $type: gamedataConstantStatModifier_Record
+  value: -0.9
+  modifierType: Additive
+  statType: BaseStats.Accuracy
+
+
+# =============================================================================
+#  2. REFLEX BOOSTER JAMMER
+# =============================================================================
+
+Items.NCQ_ReflexJammerProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.DamageHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_ReflexJammer_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\reflex_jammer.inkatlas
+    atlasPartName: NCQReflexJammer
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_ReflexJammerProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.DamageHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_ReflexJammerHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: ReflexJammer
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_ReflexJammerProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_ReflexJammerProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_ReflexJammerProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_ReflexJammer_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_ReflexJammerHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQReflexJammer
+  gameplayCategory: ''
+  hackCategory: HackCategory.DamageHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_ReflexJammerHack
+  priority: 3
+  activationTime:
+    - QuickHack.NCQ_ReflexJammerHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_ReflexJammerHack_apply
+  costs:
+    - QuickHack.NCQ_ReflexJammerHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_ReflexJammerHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.5
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_ReflexJammerHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_ReflexJammerHack_ram
+
+QuickHack.NCQ_ReflexJammerHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 10
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_ReflexJammerHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_ReflexJammer
+
+Interactions.NCQ_ReflexJammerHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_ReflexJammerIcon
+  name: NCQReflexJammerHack
+  prereqID: ''
+  caption: NCQ_ReflexJammer_name
+  description: NCQ_ReflexJammer_short
+
+ChoiceCaptionParts.NCQ_ReflexJammerIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQReflexJammer
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_ReflexJammerScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_ReflexJammer:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQReflexJammer
+  atlasResourcePath: base\ncquickhacks\ui\reflex_jammer.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_ReflexJammerScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQReflexJammerScanner
+  atlasResourcePath: base\ncquickhacks\ui\reflex_jammer_scanner.inkatlas
+
+# The armed trap. Inert on its own - the script watches for the dilation attempt.
+BaseStatusEffect.NCQ_ReflexJammer:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_ReflexJammer_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_ReflexJammer_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - NCQ_ReflexJammer
+  immunityStats: []
+  packages: []
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_ReflexJammer_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 12
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_ReflexJammer_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_ReflexJammer_sedesc
+  displayName: LocKey#NCQ_ReflexJammer_se
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+# The punish, applied by script when the trap trips. Armor collapse for 6s.
+BaseStatusEffect.NCQ_ReflexMisfire:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_ReflexMisfire_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_ReflexMisfire_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - NCQ_ReflexMisfire
+  immunityStats: []
+  packages:
+    - BaseStatusEffect.NCQ_ReflexMisfire_pkg
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_ReflexMisfire_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 6
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_ReflexMisfire_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_ReflexMisfire_sedesc
+  displayName: LocKey#NCQ_ReflexMisfire_se
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+BaseStatusEffect.NCQ_ReflexMisfire_pkg:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats:
+    - BaseStatusEffect.NCQ_ReflexMisfire_armor
+
+BaseStatusEffect.NCQ_ReflexMisfire_armor:
+  $type: gamedataConstantStatModifier_Record
+  value: -10000
+  modifierType: Additive
+  statType: BaseStats.Armor
+
+
+# =============================================================================
+#  3. OPTIC OVERWRITE
+# =============================================================================
+
+Items.NCQ_OpticOverwriteProgram:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  canDrop: True
+  CraftingData: ''
+  crosshair: Crosshairs.None
+  deprecated: False
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  isCached: False
+  isCoreCW: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Program
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  powerLevelDeterminedByParent: False
+  quality: Quality.Legendary
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  upgradeCostMult: 1
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualityMultiplier
+    - Price.BuyPrice_StreetCred_Discount
+    - Price.ControlHackMultiplier
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: NCQ_OpticOverwrite_name
+  icon:
+    atlasResourcePath: base\ncquickhacks\ui\optic_overwrite.inkatlas
+    atlasPartName: NCQOpticOverwrite
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  localizedDescription: ""
+  OnAttach:
+    - EquipmentGLP.NCQ_OpticOverwriteProgram
+  OnEquip: []
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.CyberdeckProgram1
+    - AttachmentSlots.CyberdeckProgram2
+    - AttachmentSlots.CyberdeckProgram3
+    - AttachmentSlots.CyberdeckProgram4
+    - AttachmentSlots.CyberdeckProgram5
+    - AttachmentSlots.CyberdeckProgram6
+    - AttachmentSlots.CyberdeckProgram7
+    - AttachmentSlots.CyberdeckProgram8
+    - AttachmentSlots.NanoWiresQuickhackSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BaseHackPrice
+    - Price.ItemQualitySellMultiplier
+    - Price.SellMultiplier
+    - Price.ControlHackMultiplier
+  slotPartList: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - SoftwareShard
+    - Tier0Shard
+    - Tier2Shard
+    - Tier6Shard
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.ProgramDisassemble
+    - QuickHack.NCQ_OpticOverwriteHack
+  statModifierGroups: []
+  statModifiers:
+    - Quality.IconicItem
+  statPools: []
+  weakspots: []
+  shardType: OpticOverwrite
+  hideCooldownUI: False
+  hideDurationUI: False
+
+EquipmentGLP.NCQ_OpticOverwriteProgram:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: EquipmentGLP.NCQ_OpticOverwriteProgram_ui
+  animationWrapperOverrides: []
+  effectors: []
+  items: []
+  statPools: []
+  stats: []
+
+EquipmentGLP.NCQ_OpticOverwriteProgram_ui:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  iconPath: ability_utility
+  localizedName: ''
+  localizedDescription: LocKey#NCQ_OpticOverwrite_desc
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+QuickHack.NCQ_OpticOverwriteHack:
+  $type: gamedataObjectAction_Record
+  actionName: NCQOpticOverwrite
+  gameplayCategory: ''
+  hackCategory: HackCategory.ControlHack
+  interactionLayer: remote
+  objectActionType: ObjectActionType.PuppetQuickHack
+  objectActionUI: Interactions.NCQ_OpticOverwriteHack
+  priority: 4
+  activationTime:
+    - QuickHack.NCQ_OpticOverwriteHack_upload
+  completionEffects:
+    - QuickHack.QuickHack_inline2
+    - QuickHack.QuickHack_inline8
+    - QuickHack.QuickHack_inline9
+    - QuickHack.NCQ_OpticOverwriteHack_apply
+  costs:
+    - QuickHack.NCQ_OpticOverwriteHack_cost
+  durationTime: []
+  instigatorActivePrereqs: []
+  instigatorPrereqs:
+    - QuickHack.QuickHack_inline1
+  interruptionPrereqs: []
+  rewards: []
+  startEffects:
+    - QuickHack.QuickHack_inline10
+  targetActivePrereqs:
+    - Prereqs.QuickHackUploadingPrereq
+    - Prereqs.ChimeraNoQuickHackPrereq
+  targetPrereqs: []
+  isQuickHack: True
+
+QuickHack.NCQ_OpticOverwriteHack_upload:
+  $type: gamedataConstantStatModifier_Record
+  value: 3
+  modifierType: Additive
+  statType: BaseStats.QuickHackUpload
+
+QuickHack.NCQ_OpticOverwriteHack_cost:
+  $type: gamedataStatPoolCost_Record
+  statPool: BaseStatPools.Memory
+  costMods:
+    - QuickHack.MemoryCostReductionMod
+    - QuickHack.ConsumableCostReduction
+    - QuickHack.NetworkMemoryCostReductionMod
+    - QuickHack.NCQ_OpticOverwriteHack_ram
+
+QuickHack.NCQ_OpticOverwriteHack_ram:
+  $type: gamedataConstantStatModifier_Record
+  value: 12
+  modifierType: Additive
+  statType: BaseStats.Memory
+
+QuickHack.NCQ_OpticOverwriteHack_apply:
+  $type: gamedataObjectActionEffect_Record
+  recipient: ObjectActionReference.Target
+  statusEffect: BaseStatusEffect.NCQ_OpticOverwrite
+
+Interactions.NCQ_OpticOverwriteHack:
+  $type: gamedataInteractionBase_Record
+  action: Choice1
+  captionIcon: ChoiceCaptionParts.NCQ_OpticOverwriteIcon
+  name: NCQOpticOverwriteHack
+  prereqID: ''
+  caption: NCQ_OpticOverwrite_name
+  description: NCQ_OpticOverwrite_short
+
+ChoiceCaptionParts.NCQ_OpticOverwriteIcon:
+  $type: gamedataChoiceCaptionIconPart_Record
+  comment: ''
+  enumName: NCQOpticOverwrite
+  mappinVariant: Mappins.InvalidVariant
+  texturePartID: UIIcon.NCQ_OpticOverwriteScanner
+  partType: ChoiceCaptionPartType.Icon
+
+UIIcon.NCQ_OpticOverwrite:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQOpticOverwrite
+  atlasResourcePath: base\ncquickhacks\ui\optic_overwrite.inkatlas
+
+# The scanner and the radial menu draw the caption icon at 64px. The card
+# above is 99x128 of routed board and turns to mush at that size, so those
+# two call sites get the bare pictogram instead - the same split the shipped
+# art makes between item_icons18 and quickhacks_icons.
+UIIcon.NCQ_OpticOverwriteScanner:
+  $type: gamedataUIIcon_Record
+  atlasPartName: NCQOpticOverwriteScanner
+  atlasResourcePath: base\ncquickhacks\ui\optic_overwrite_scanner.inkatlas
+
+BaseStatusEffect.NCQ_OpticOverwrite:
+  $type: gamedataStatusEffect_Record
+  AIData: ''
+  duration: BaseStatusEffect.NCQ_OpticOverwrite_duration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: True
+  removeOnStoryTier: False
+  replicated: False
+  savable: False
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: BaseStatusEffect.NCQ_OpticOverwrite_ui
+  debugTags: []
+  gameplayTags:
+    - Debuff
+    - Quickhack
+    - CovertQuickhacked
+    - Stealth
+    - NCQ_OpticOverwrite
+  immunityStats: []
+  packages: []
+  SFX: []
+  VFX: []
+
+BaseStatusEffect.NCQ_OpticOverwrite_duration:
+  $type: gamedataConstantStatModifier_Record
+  value: 15
+  modifierType: Additive
+  statType: BaseStats.StatusEffectDuration
+
+BaseStatusEffect.NCQ_OpticOverwrite_ui:
+  $type: gamedataStatusEffectUIData_Record
+  description: LocKey#NCQ_OpticOverwrite_sedesc
+  displayName: LocKey#NCQ_OpticOverwrite_name
+  fluffText: ''
+  iconPath: ''
+  priority: 0
+  floatValues: []
+  intValues: []
+  nameValues: []
+  stats: []
+
+
+# =============================================================================
+#  ACQUISITION - loot lives in NCQuickhacks_loot.yaml
+#  The three private LootTables.NCQ_* tables that used to sit here were inert:
+#  defined, but included by nothing, so they could never drop. They are replaced
+#  by direct entries in the vanilla LootTables.LegendaryQuickhacks tables, which
+#  are genuinely reachable from netrunner and container loot.
+# =============================================================================
+

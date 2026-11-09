@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <g fill="none" stroke="#7FE9F5" stroke-width="10" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="6">
+    <!-- cyberdeck shell, chamfered -->
+    <path d="M54 46 H182 L212 76 V210 H74 L44 180 Z"/>
+    <!-- port pins down the left edge -->
+    <path d="M22 96 H44 M22 120 H44 M22 144 H44" stroke-width="8"/>
+    <!-- loaded daemon -->
+    <path d="M128 92 L162 126 L128 160 L94 126 Z"/>
+    <!-- bus trace out to the deck edge -->
+    <path d="M162 126 H196" stroke-width="7" opacity="0.8"/>
+    <path d="M100 186 H156" stroke-width="8"/>
+  </g>
+</svg>
